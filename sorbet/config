@@ -4,7 +4,9 @@
 --dir=lib
 --dir=test
 --dir=sorbet/rbi/annotations
+--dir=sorbet/rbi/dsl
 --dir=sorbet/rbi/gems
+--dir=sorbet/rbi/shims
 --ignore=app/assets
 --ignore=app/javascript
 --ignore=app/views
