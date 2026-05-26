@@ -8,21 +8,17 @@ module Ui
   class ButtonComponent < Phlex::HTML
     extend T::Sig
 
-    sig { params(label: String).void }
-    def initialize(label:)
+    sig { params(label: String, attributes: T.untyped).void }
+    def initialize(label:, attributes: {})
       @label = T.let(label, String)
+      @attributes = T.let(attributes, T.untyped)
     end
 
     sig { void }
     def view_template
-      button(type: "button", class: "ui-button") do
+      button(**@attributes, type: "button", class: "ui-button") do
         plain @label
       end
     end
-
-    private
-
-    sig { returns(String) }
-    attr_reader :label
   end
 end

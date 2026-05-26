@@ -1,15 +1,141 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
+ * Base page styling
  */
+
+:root {
+  color-scheme: light;
+  --page-bg: #f6efe7;
+  --panel-bg: rgba(255, 255, 255, 0.78);
+  --panel-border: rgba(57, 38, 24, 0.12);
+  --text-strong: #24170f;
+  --text-muted: #6e5b4f;
+  --accent: #0f766e;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --shadow: 0 24px 60px rgba(52, 31, 11, 0.15);
+}
+
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--text-strong);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(15, 118, 110, 0.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(201, 119, 65, 0.18),
+      transparent 26%
+    ),
+    var(--page-bg);
+}
+
+.home-page {
+  width: min(920px, calc(100vw - 32px));
+  margin: 48px auto;
+  padding: 32px;
+}
+
+.home-page__title {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.02;
+}
+
+.home-page__lead {
+  margin: 0 0 28px;
+  max-width: 56ch;
+  color: var(--text-muted);
+}
+
+.select-picker {
+  position: relative;
+  max-width: 420px;
+}
+
+.select-picker__toggle button {
+  width: 100%;
+}
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.95rem 1.2rem;
+  background: linear-gradient(180deg, #ffffff, #f5efe9);
+  color: var(--text-strong);
+  font: inherit;
+  font-weight: 650;
+  box-shadow: var(--shadow);
+}
+
+.select-picker__panel {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.select-picker__search-form {
+  margin-bottom: 12px;
+}
+
+.select-picker__search {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 16px;
+  padding: 0.85rem 0.95rem;
+  background: #fff;
+  color: var(--text-strong);
+  font: inherit;
+}
+
+.select-picker__results {
+  display: grid;
+  gap: 8px;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.select-picker__empty,
+.user-option {
+  border-radius: 16px;
+  padding: 12px 14px;
+}
+
+.select-picker__empty {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.user-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #fff;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+}
+
+.user-option__name {
+  font-weight: 650;
+}
+
+.user-option__email {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}

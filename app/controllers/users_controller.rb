@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   def index
     users = User.search(search_term).limit(20).to_a
 
-    render partial: "users/user", collection: users, as: :user, layout: false
+    if users.empty?
+      render partial: "users/empty", layout: false
+    else
+      render partial: "users/user", collection: users, as: :user, layout: false
+    end
   end
 
   private
