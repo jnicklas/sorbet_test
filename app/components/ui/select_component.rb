@@ -5,41 +5,24 @@ require "phlex"
 require "sorbet-runtime"
 
 module Ui
-  class SelectComponent < Phlex::HTML
+  class SelectComponent < DropdownComponent
     extend T::Sig
 
-    sig do
-      params(
-        label: String,
-        results_path: String,
-      ).void
-    end
+    sig { params(label: String, results_path: String).void }
     def initialize(label:, results_path:)
-      @label = T.let(label, String)
+      super(label: label)
       @results_path = T.let(results_path, String)
     end
 
-    sig { void }
-    def view_template
-      div(class: "select-picker", data: { controller: "select", select_results_path_value: @results_path }) do
-        div(class: "select-picker__toggle") do
-          render Ui::ButtonComponent.new(
-            label: @label,
-            attributes: {
-              data: { action: "click->select#toggle" },
-              aria: { expanded: "false" },
-            },
-          )
-        end
-
-        div(class: "select-picker__panel", hidden: true, data: { select_target: "panel" }) do
-          panel
-        end
+    sig { override.void }
+    def panel
+      div(data: { controller: "select", select_results_path_value: @results_path }) do
+        select_panel
       end
     end
 
     sig { void }
-    def panel; end
+    def select_panel; end
 
     private
 

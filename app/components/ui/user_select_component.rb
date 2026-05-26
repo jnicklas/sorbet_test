@@ -23,7 +23,7 @@ module Ui
     end
 
     sig { override.void }
-    def panel
+    def select_panel
       form(action: results_path, method: "get", class: "select-picker__search-form", data: { select_target: "form" }) do
         input(
           type: "search",
@@ -31,6 +31,7 @@ module Ui
           value: "",
           placeholder: @placeholder,
           autocomplete: "off",
+          autofocus: true,
           class: "select-picker__search",
           data: { select_target: "search", action: "input->select#search" },
         )
