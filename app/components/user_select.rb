@@ -8,9 +8,8 @@ module Components
   class UserSelect < Base
     extend T::Sig
 
-    sig { params(results_path: String, label: String).void }
-    def initialize(results_path:, label: "Choose a user")
-      @results_path = T.let(results_path, String)
+    sig { params(label: String).void }
+    def initialize(label: "Choose a user")
       @label = T.let(label, String)
     end
 
@@ -18,7 +17,7 @@ module Components
     def view_template
       render Select.new(
         label: @label,
-        results_path: @results_path,
+        results_path: users_path,
         placeholder: "Search users",
         empty_state_text: "Search to load users",
       )
