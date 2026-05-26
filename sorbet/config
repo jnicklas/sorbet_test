@@ -1,0 +1,17 @@
+--dir=app
+--dir=config
+--dir=db
+--dir=lib
+--dir=test
+--dir=sorbet/rbi/annotations
+--dir=sorbet/rbi/gems
+--ignore=app/assets
+--ignore=app/javascript
+--ignore=app/views
+--ignore=bin
+--ignore=config/credentials.yml.enc
+--ignore=log
+--ignore=storage
+--ignore=tmp
+--ignore=vendor
+--suppress-payload-superclass-redefinition-for=Net::IMAP::Literal
