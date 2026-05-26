@@ -4,8 +4,8 @@
 require "phlex"
 require "sorbet-runtime"
 
-module Ui
-  class UserSelectComponent < Phlex::HTML
+module Components
+  class UserSelect < Base
     extend T::Sig
 
     sig { params(results_path: String, label: String).void }
@@ -16,7 +16,7 @@ module Ui
 
     sig { void }
     def view_template
-      render Ui::SelectComponent.new(
+      render Select.new(
         label: @label,
         results_path: @results_path,
         placeholder: "Search users",

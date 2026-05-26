@@ -1,8 +1,8 @@
 require "test_helper"
 
-class Ui::SelectComponentTest < ActiveSupport::TestCase
+class SelectTest < ActiveSupport::TestCase
   test "renders a generic shell without user-specific content" do
-    html = Ui::SelectComponent.new(
+    html = Components::Select.new(
       label: "Choose an option",
       results_path: "/options",
     ).call

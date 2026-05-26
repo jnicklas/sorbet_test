@@ -64,6 +64,9 @@ class Phlex::CSV
   # pkg:gem/phlex#lib/phlex/csv.rb:138
   def delimiter; end
 
+  # pkg:gem/phlex#lib/phlex/csv.rb:146
+  def each_item(&_arg0); end
+
   # pkg:gem/phlex#lib/phlex/csv.rb:130
   def filename; end
 
@@ -74,9 +77,6 @@ class Phlex::CSV
 
   # pkg:gem/phlex#lib/phlex/csv.rb:142
   def column(header = T.unsafe(nil), value); end
-
-  # pkg:gem/phlex#lib/phlex/csv.rb:146
-  def each_item(&_arg0); end
 
   # pkg:gem/phlex#lib/phlex/csv.rb:234
   def ensure_escape_csv_injection_configured!; end

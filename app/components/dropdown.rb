@@ -4,8 +4,8 @@
 require "phlex"
 require "sorbet-runtime"
 
-module Ui
-  class DropdownComponent < Phlex::HTML
+module Components
+  class Dropdown < Base
     extend T::Sig
 
     sig { params(label: String).void }
@@ -16,11 +16,11 @@ module Ui
 
     sig { params(blk: T.proc.void).void }
     def view_template(&blk)
-      render Ui::ButtonComponent.new(
+      render Button.new(
         label: @label,
         attributes: {
           popovertarget: @id,
-          style: "anchor-name: --#{@id}",
+          style: "anchor-name: --#{@id}"
         },
       )
 

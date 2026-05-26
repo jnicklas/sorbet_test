@@ -4,8 +4,8 @@
 require "phlex"
 require "sorbet-runtime"
 
-module Ui
-  class ButtonComponent < Phlex::HTML
+module Components
+  class Button < Base
     extend T::Sig
 
     sig { params(label: String, attributes: T.untyped).void }

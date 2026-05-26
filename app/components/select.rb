@@ -4,8 +4,8 @@
 require "phlex"
 require "sorbet-runtime"
 
-module Ui
-  class SelectComponent < Phlex::HTML
+module Components
+  class Select < Base
     extend T::Sig
 
     sig do
@@ -25,7 +25,7 @@ module Ui
 
     sig { void }
     def view_template
-      render Ui::DropdownComponent.new(label: @label) do
+      render Dropdown.new(label: @label) do
         div(data: { controller: "select", select_results_path_value: @results_path }) do
           form(action: @results_path, method: "get", class: "select-picker__search-form", data: { select_target: "form" }) do
             input(

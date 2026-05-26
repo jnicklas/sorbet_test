@@ -16,6 +16,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Component rendering with Ruby classes
 gem "phlex"
+gem "phlex-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
