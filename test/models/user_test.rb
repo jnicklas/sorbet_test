@@ -1,6 +1,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  setup { User.delete_all }
+
   test "search matches name and email" do
     matching_user = User.create!(name: "Alice Example", email: "alice@example.com")
     User.create!(name: "Bob Example", email: "bob@example.com")

@@ -14,8 +14,8 @@ module Ui
       @id = T.let("dropdown-#{SecureRandom.hex(4)}", String)
     end
 
-    sig { void }
-    def view_template
+    sig { params(blk: T.proc.void).void }
+    def view_template(&blk)
       render Ui::ButtonComponent.new(
         label: @label,
         attributes: {
@@ -30,11 +30,8 @@ module Ui
         class: "dropdown__panel",
         style: "position-anchor: --#{@id}",
       ) do
-        panel
+        yield
       end
     end
-
-    sig { void }
-    def panel; end
   end
 end
