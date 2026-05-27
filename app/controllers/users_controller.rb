@@ -5,15 +5,12 @@ require "sorbet-runtime"
 class UsersController < ApplicationController
   extend T::Sig
 
+  layout false
+
   sig { void }
   def index
-    users = User.search(search_term).limit(20).to_a
-
-    if users.empty?
-      render partial: "users/empty", layout: false
-    else
-      render partial: "users/user", collection: users, as: :user, layout: false
-    end
+    users = T.let(User.search(search_term).limit(20).to_a, T::Array[User])
+    render Components::UserSelect::Results.new(users:)
   end
 
   private
