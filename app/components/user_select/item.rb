@@ -15,7 +15,7 @@ module Components
 
       sig { void }
       def view_template
-        div(class: "user-option", data: { user_id: @user.id }) do
+        render Components::Select::Item.new(selectable: @user) do
           span(class: "user-option__name") { plain @user.name }
           span(class: "user-option__email") { plain @user.email }
         end

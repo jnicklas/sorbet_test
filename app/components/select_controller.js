@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["results", "search", "form"]
+  static targets = ["results", "search", "form", "trigger", "panel"]
   static values = { resultsPath: String }
 
   disconnect() {
@@ -24,6 +24,11 @@ export default class extends Controller {
     this.debounceTimer = setTimeout(() => {
       this.loadResults(this.searchTarget.value)
     }, 150)
+  }
+
+  select(event) {
+    this.triggerTarget.textContent = event.params.label
+    this.panelTarget.hidePopover()
   }
 
   async loadResults(query) {

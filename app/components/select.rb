@@ -29,30 +29,32 @@ module Components
     def view_template
       button_label = @selected ? @selected.label : @label
 
-      render Dropdown.new(
-        label: button_label,
-        panel_data: {
-          controller: "select",
-          select_results_path_value: @results_path,
-          action: "toggle->select#handleToggle",
-        }
-      ) do
-        form(action: @results_path, method: "get", class: "select-picker__search-form", data: { select_target: "form" }) do
-          input(
-            type: "search",
-            name: "q",
-            value: "",
-            placeholder: @placeholder,
-            autocomplete: "off",
-            autofocus: true,
-            class: "select-picker__search",
-            data: { select_target: "search", action: "input->select#search" },
-          )
-        end
+      div(data: { controller: "select", select_results_path_value: @results_path }) do
+        render Dropdown.new(
+          label: button_label,
+          trigger_data: { select_target: "trigger" },
+          panel_data: {
+            select_target: "panel",
+            action: "toggle->select#handleToggle"
+          }
+        ) do
+          form(action: @results_path, method: "get", class: "select-picker__search-form", data: { select_target: "form" }) do
+            input(
+              type: "search",
+              name: "q",
+              value: "",
+              placeholder: @placeholder,
+              autocomplete: "off",
+              autofocus: true,
+              class: "select-picker__search",
+              data: { select_target: "search", action: "input->select#search" },
+            )
+          end
 
-        div(class: "select-picker__results", data: { select_target: "results" }) do
-          div(class: "select-picker__empty") do
-            plain @empty_state_text
+          div(class: "select-picker__results", data: { select_target: "results" }) do
+            div(class: "select-picker__empty") do
+              plain @empty_state_text
+            end
           end
         end
       end
