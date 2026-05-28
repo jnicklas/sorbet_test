@@ -7,4 +7,6 @@ A Rails sandbox exploring the combination of [Sorbet](https://sorbet.org) (stati
 ```sh
 bin/setup        # install gems, create & seed the database
 bin/rails server # start the dev server at http://localhost:3000
+bin/srb          # run type checks
+bin/rails test   # run tests
 ```
