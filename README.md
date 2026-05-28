@@ -1,24 +1,12 @@
-# README
+# sorbet-test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails 7 sandbox exploring the combination of [Sorbet](https://sorbet.org) (static typing), [Phlex](https://www.phlex.fun) (Ruby component rendering), and [Stimulus](https://stimulus.hotwired.dev) (modest JS). The main feature is a type-safe, searchable user-select picker built from Phlex components and a single Stimulus controller.
 
-Things you may want to cover:
+**Stack:** Rails 7.2 · SQLite · Sprockets · Importmap · Phlex · Sorbet · Stimulus · Turbo
 
-* Ruby version
+## Running locally
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+bin/setup        # install gems, create & seed the database
+bin/rails server # start the dev server at http://localhost:3000
+```
