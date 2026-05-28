@@ -4,14 +4,15 @@ export default class extends Controller {
   static targets = ["results", "search", "form"]
   static values = { resultsPath: String }
 
-  connect() {
-    this.debounceTimer = null
-    this.loadResults("")
-  }
-
   disconnect() {
     if (this.debounceTimer) {
       clearTimeout(this.debounceTimer)
+    }
+  }
+
+  handleToggle(event) {
+    if (event.newState === "open") {
+      this.loadResults("")
     }
   }
 

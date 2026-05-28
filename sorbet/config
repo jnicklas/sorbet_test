@@ -1,7 +1,6 @@
 --dir=.
 --ignore=app/assets
 --ignore=app/javascript
---ignore=app/views
 --ignore=bin
 --ignore=config/credentials.yml.enc
 --ignore=log

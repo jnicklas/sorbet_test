@@ -4,9 +4,13 @@ require "sorbet-runtime"
 
 class User < ApplicationRecord
   extend T::Sig
+  include Components::Selectable
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  sig { override.returns(String) }
+  def label = name
 
   sig { params(term: T.nilable(String)).returns(ActiveRecord::Relation) }
   def self.search(term)

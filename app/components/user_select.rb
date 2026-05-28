@@ -8,9 +8,10 @@ module Components
   class UserSelect < Base
     extend T::Sig
 
-    sig { params(label: String).void }
-    def initialize(label: "Choose a user")
+    sig { params(label: String, selected: T.nilable(User)).void }
+    def initialize(label: "Choose a user", selected: nil)
       @label = T.let(label, String)
+      @selected = T.let(selected, T.nilable(User))
     end
 
     sig { void }
@@ -20,6 +21,7 @@ module Components
         results_path: users_path,
         placeholder: "Search users",
         empty_state_text: "Search to load users",
+        selected: @selected,
       )
     end
   end
