@@ -620,6 +620,10 @@ class Rubydex::Namespace < ::Rubydex::Declaration
   # pkg:gem/rubydex#lib/rubydex.rb:11
   def find_member(*_arg0); end
 
+  # pkg:gem/rubydex#lib/rubydex/declaration.rb:25
+  sig { params(ancestor_name: String).returns(T::Boolean) }
+  def has_ancestor?(ancestor_name); end
+
   # pkg:gem/rubydex#lib/rubydex.rb:11
   sig { params(name: String).returns(T.nilable(Rubydex::Declaration)) }
   def member(name); end
@@ -752,7 +756,11 @@ class Rubydex::Signature::RestKeywordParameter < ::Rubydex::Signature::Parameter
 class Rubydex::Signature::RestPositionalParameter < ::Rubydex::Signature::Parameter; end
 
 # pkg:gem/rubydex#lib/rubydex.rb:11
-class Rubydex::SingletonClass < ::Rubydex::Namespace; end
+class Rubydex::SingletonClass < ::Rubydex::Namespace
+  # pkg:gem/rubydex#lib/rubydex/declaration.rb:40
+  sig { returns(Rubydex::Declaration) }
+  def attached_class; end
+end
 
 # pkg:gem/rubydex#lib/rubydex.rb:11
 class Rubydex::SingletonClassDefinition < ::Rubydex::Definition

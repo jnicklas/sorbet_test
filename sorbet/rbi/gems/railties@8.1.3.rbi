@@ -7,6 +7,7 @@
 
 # :include: ../README.rdoc
 # :enddoc:
+# :enddoc:
 #
 # pkg:gem/railties#lib/rails/gem_version.rb:3
 module Rails
@@ -14,33 +15,33 @@ module Rails
   extend ::ActiveSupport::Benchmarkable
 
   class << self
-    # pkg:gem/railties#lib/rails.rb:44
+    # pkg:gem/railties#lib/rails.rb:43
     def app_class; end
 
-    # pkg:gem/railties#lib/rails.rb:44
+    # pkg:gem/railties#lib/rails.rb:43
     def app_class=(_arg0); end
 
-    # pkg:gem/railties#lib/rails.rb:45
+    # pkg:gem/railties#lib/rails.rb:44
     def application; end
 
-    # pkg:gem/railties#lib/rails.rb:43
+    # pkg:gem/railties#lib/rails.rb:42
     def application=(_arg0); end
 
-    # pkg:gem/railties#lib/rails.rb:126
+    # pkg:gem/railties#lib/rails.rb:133
     def autoloaders; end
 
-    # pkg:gem/railties#lib/rails.rb:56
+    # pkg:gem/railties#lib/rails.rb:55
     def backtrace_cleaner; end
 
-    # pkg:gem/railties#lib/rails.rb:44
+    # pkg:gem/railties#lib/rails.rb:43
     def cache; end
 
-    # pkg:gem/railties#lib/rails.rb:44
+    # pkg:gem/railties#lib/rails.rb:43
     def cache=(_arg0); end
 
     # The Configuration instance used to configure the \Rails environment
     #
-    # pkg:gem/railties#lib/rails.rb:52
+    # pkg:gem/railties#lib/rails.rb:51
     def configuration; end
 
     # pkg:gem/railties#lib/rails/deprecator.rb:4
@@ -53,14 +54,14 @@ module Rails
     #   Rails.env.production? # => false
     #   Rails.env.local? # => true              true for "development" and "test", false for anything else
     #
-    # pkg:gem/railties#lib/rails.rb:75
+    # pkg:gem/railties#lib/rails.rb:74
     def env; end
 
     # Sets the \Rails environment.
     #
     #   Rails.env = "staging" # => "staging"
     #
-    # pkg:gem/railties#lib/rails.rb:82
+    # pkg:gem/railties#lib/rails.rb:81
     def env=(environment); end
 
     # Returns the ActiveSupport::ErrorReporter of the current \Rails project,
@@ -71,8 +72,16 @@ module Rails
     #   end
     #   Rails.error.report(error)
     #
-    # pkg:gem/railties#lib/rails.rb:93
+    # pkg:gem/railties#lib/rails.rb:92
     def error; end
+
+    # Returns the ActiveSupport::EventReporter of the current \Rails project,
+    # otherwise it returns +nil+ if there is no project.
+    #
+    #   Rails.event.notify("my_event", { message: "Hello, world!" })
+    #
+    # pkg:gem/railties#lib/rails.rb:100
+    def event; end
 
     # Returns the currently loaded version of \Rails as a +Gem::Version+.
     #
@@ -89,19 +98,19 @@ module Rails
     #  # => [:default, "development", :assets] for Rails.env == "development"
     #  # => [:default, "production"]           for Rails.env == "production"
     #
-    # pkg:gem/railties#lib/rails.rb:106
+    # pkg:gem/railties#lib/rails.rb:113
     def groups(*groups); end
 
-    # pkg:gem/railties#lib/rails.rb:49
+    # pkg:gem/railties#lib/rails.rb:48
     def initialize!(*_arg0, **_arg1, &_arg2); end
 
-    # pkg:gem/railties#lib/rails.rb:49
+    # pkg:gem/railties#lib/rails.rb:48
     def initialized?(*_arg0, **_arg1, &_arg2); end
 
-    # pkg:gem/railties#lib/rails.rb:44
+    # pkg:gem/railties#lib/rails.rb:43
     def logger; end
 
-    # pkg:gem/railties#lib/rails.rb:44
+    # pkg:gem/railties#lib/rails.rb:43
     def logger=(_arg0); end
 
     # Returns a Pathname object of the public folder of the current
@@ -110,7 +119,7 @@ module Rails
     #   Rails.public_path
     #     # => #<Pathname:/Users/someuser/some/path/project/public>
     #
-    # pkg:gem/railties#lib/rails.rb:122
+    # pkg:gem/railties#lib/rails.rb:129
     def public_path; end
 
     # Returns a Pathname object of the current \Rails project,
@@ -119,7 +128,7 @@ module Rails
     #   Rails.root
     #     # => #<Pathname:/Users/someuser/some/path/project>
     #
-    # pkg:gem/railties#lib/rails.rb:65
+    # pkg:gem/railties#lib/rails.rb:64
     def root; end
 
     # Returns the currently loaded version of \Rails as a string.
@@ -175,27 +184,27 @@ end
 # 10. Run +config.before_eager_load+ and +eager_load!+ if +eager_load+ is +true+.
 # 11. Run +config.after_initialize+ callbacks.
 #
-# pkg:gem/railties#lib/rails/application.rb:61
+# pkg:gem/railties#lib/rails/application.rb:60
 class Rails::Application < ::Rails::Engine
-  # pkg:gem/railties#lib/rails/application.rb:108
+  # pkg:gem/railties#lib/rails/application.rb:107
   def initialize(initial_variable_values = T.unsafe(nil), &block); end
 
-  # pkg:gem/railties#lib/rails/application.rb:99
+  # pkg:gem/railties#lib/rails/application.rb:98
   def assets; end
 
-  # pkg:gem/railties#lib/rails/application.rb:99
+  # pkg:gem/railties#lib/rails/application.rb:98
   def assets=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application.rb:101
+  # pkg:gem/railties#lib/rails/application.rb:100
   def autoloaders; end
 
-  # pkg:gem/railties#lib/rails/application.rb:553
+  # pkg:gem/railties#lib/rails/application.rb:560
   def build_middleware_stack; end
 
-  # pkg:gem/railties#lib/rails/application.rb:446
+  # pkg:gem/railties#lib/rails/application.rb:453
   def config; end
 
-  # pkg:gem/railties#lib/rails/application.rb:450
+  # pkg:gem/railties#lib/rails/application.rb:457
   def config=(_arg0); end
 
   # Convenience for loading config/foo.yml for the current \Rails env.
@@ -237,13 +246,13 @@ class Rails::Application < ::Rails::Engine
   #     Rails.application.config_for(:example)[:foo][:bar]
   #     # => { baz: 1, qux: 2 }
   #
-  # pkg:gem/railties#lib/rails/application.rb:283
+  # pkg:gem/railties#lib/rails/application.rb:290
   def config_for(name, env: T.unsafe(nil)); end
 
   # Sends any console called in the instance of a new application up
   # to the +console+ method defined in Rails::Railtie.
   #
-  # pkg:gem/railties#lib/rails/application.rb:366
+  # pkg:gem/railties#lib/rails/application.rb:373
   def console(&blk); end
 
   # Returns an ActiveSupport::EncryptedConfiguration instance for the
@@ -261,7 +270,7 @@ class Rails::Application < ::Rails::Engine
   # <tt>config/credentials/#{environment}.key</tt> for the current
   # environment, or +config/master.key+ if that file does not exist.
   #
-  # pkg:gem/railties#lib/rails/application.rb:490
+  # pkg:gem/railties#lib/rails/application.rb:497
   def credentials; end
 
   # Returns an ActiveSupport::EncryptedConfiguration instance for the
@@ -279,13 +288,13 @@ class Rails::Application < ::Rails::Engine
   # <tt>config/credentials/#{environment}.key</tt> for the current
   # environment, or +config/master.key+ if that file does not exist.
   #
-  # pkg:gem/railties#lib/rails/application.rb:451
+  # pkg:gem/railties#lib/rails/application.rb:458
   def credentials=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application.rb:103
+  # pkg:gem/railties#lib/rails/application.rb:102
   def default_url_options(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/railties#lib/rails/application.rb:103
+  # pkg:gem/railties#lib/rails/application.rb:102
   def default_url_options=(arg); end
 
   # A managed collection of deprecators (ActiveSupport::Deprecation::Deprecators).
@@ -293,12 +302,12 @@ class Rails::Application < ::Rails::Engine
   # collection. Additionally, the collection's +silence+ method silences all
   # deprecators in the collection for the duration of a given block.
   #
-  # pkg:gem/railties#lib/rails/application.rb:239
+  # pkg:gem/railties#lib/rails/application.rb:246
   def deprecators; end
 
   # Eager loads the application code.
   #
-  # pkg:gem/railties#lib/rails/application.rb:548
+  # pkg:gem/railties#lib/rails/application.rb:555
   def eager_load!; end
 
   # Returns an ActiveSupport::EncryptedConfiguration instance for an encrypted
@@ -317,51 +326,51 @@ class Rails::Application < ::Rails::Engine
   # command. (See the output of <tt>bin/rails encrypted:edit --help</tt> for
   # more information.)
   #
-  # pkg:gem/railties#lib/rails/application.rb:509
+  # pkg:gem/railties#lib/rails/application.rb:516
   def encrypted(path, key_path: T.unsafe(nil), env_key: T.unsafe(nil)); end
 
   # Stores some of the \Rails initial environment parameters which
   # will be used by middlewares and engines to configure themselves.
   #
-  # pkg:gem/railties#lib/rails/application.rb:312
+  # pkg:gem/railties#lib/rails/application.rb:319
   def env_config; end
 
-  # pkg:gem/railties#lib/rails/application.rb:101
+  # pkg:gem/railties#lib/rails/application.rb:100
   def executor; end
 
   # Sends any generators called in the instance of a new application up
   # to the +generators+ method defined in Rails::Railtie.
   #
-  # pkg:gem/railties#lib/rails/application.rb:372
+  # pkg:gem/railties#lib/rails/application.rb:379
   def generators(&blk); end
 
-  # pkg:gem/railties#lib/rails/application.rb:522
+  # pkg:gem/railties#lib/rails/application.rb:529
   def helpers_paths; end
 
   # Initialize the application passing the given group. By default, the
   # group is :default
   #
-  # pkg:gem/railties#lib/rails/application.rb:433
+  # pkg:gem/railties#lib/rails/application.rb:440
   def initialize!(group = T.unsafe(nil)); end
 
   # Returns true if the application is initialized.
   #
-  # pkg:gem/railties#lib/rails/application.rb:133
+  # pkg:gem/railties#lib/rails/application.rb:132
   def initialized?; end
 
   # Sends the initializers to the +initializer+ method defined in the
   # Rails::Initializable module. Each Rails::Application class has its own
   # set of initializers, as defined by the Initializable module.
   #
-  # pkg:gem/railties#lib/rails/application.rb:354
+  # pkg:gem/railties#lib/rails/application.rb:361
   def initializer(name, opts = T.unsafe(nil), &block); end
 
-  # pkg:gem/railties#lib/rails/application.rb:440
+  # pkg:gem/railties#lib/rails/application.rb:447
   def initializers; end
 
   # Sends the +isolate_namespace+ method up to the class method.
   #
-  # pkg:gem/railties#lib/rails/application.rb:383
+  # pkg:gem/railties#lib/rails/application.rb:390
   def isolate_namespace(mod); end
 
   # Returns a key generator (ActiveSupport::CachingKeyGenerator) for a
@@ -369,10 +378,10 @@ class Rails::Application < ::Rails::Engine
   # calls with the same +secret_key_base+ will return the same key generator
   # instance.
   #
-  # pkg:gem/railties#lib/rails/application.rb:167
+  # pkg:gem/railties#lib/rails/application.rb:174
   def key_generator(secret_key_base = T.unsafe(nil)); end
 
-  # pkg:gem/railties#lib/rails/application.rb:542
+  # pkg:gem/railties#lib/rails/application.rb:549
   def load_generators(app = T.unsafe(nil)); end
 
   # Returns a message verifier object.
@@ -397,7 +406,7 @@ class Rails::Application < ::Rails::Engine
   #     Rails.application.message_verifier('my_purpose').verify(message)
   #     # => 'data to sign against tampering'
   #
-  # pkg:gem/railties#lib/rails/application.rb:231
+  # pkg:gem/railties#lib/rails/application.rb:238
   def message_verifier(verifier_name); end
 
   # Returns a message verifier factory (ActiveSupport::MessageVerifiers). This
@@ -428,7 +437,7 @@ class Rails::Application < ::Rails::Engine
   #     app.message_verifiers.rotate(secret_key_base: "old secret_key_base")
   #   end
   #
-  # pkg:gem/railties#lib/rails/application.rb:203
+  # pkg:gem/railties#lib/rails/application.rb:210
   def message_verifiers; end
 
   # Return an array of railties respecting the order they're loaded
@@ -438,55 +447,58 @@ class Rails::Application < ::Rails::Engine
   # copying migrations from railties ; we need them in the order given by
   # +railties_order+.
   #
-  # pkg:gem/railties#lib/rails/application.rb:538
+  # pkg:gem/railties#lib/rails/application.rb:545
   def migration_railties; end
 
   # Returns the dasherized application name.
   #
   #   MyApp::Application.new.name => "my-app"
   #
-  # pkg:gem/railties#lib/rails/application.rb:140
+  # pkg:gem/railties#lib/rails/application.rb:139
   def name; end
 
   # If you try to define a set of Rake tasks on the instance, these will get
   # passed up to the Rake tasks defined on the application's class.
   #
-  # pkg:gem/railties#lib/rails/application.rb:347
+  # pkg:gem/railties#lib/rails/application.rb:354
   def rake_tasks(&block); end
 
   # Reload application routes regardless if they changed or not.
   #
-  # pkg:gem/railties#lib/rails/application.rb:159
+  # pkg:gem/railties#lib/rails/application.rb:158
   def reload_routes!; end
 
-  # pkg:gem/railties#lib/rails/application.rb:101
+  # pkg:gem/railties#lib/rails/application.rb:166
+  def reload_routes_unless_loaded; end
+
+  # pkg:gem/railties#lib/rails/application.rb:100
   def reloader; end
 
-  # pkg:gem/railties#lib/rails/application.rb:101
+  # pkg:gem/railties#lib/rails/application.rb:100
   def reloaders; end
 
-  # pkg:gem/railties#lib/rails/application.rb:409
+  # pkg:gem/railties#lib/rails/application.rb:416
   def require_environment!; end
 
-  # pkg:gem/railties#lib/rails/application.rb:414
+  # pkg:gem/railties#lib/rails/application.rb:421
   def routes_reloader; end
 
-  # pkg:gem/railties#lib/rails/application.rb:144
+  # pkg:gem/railties#lib/rails/application.rb:143
   def run_load_hooks!; end
 
   # Sends any runner called in the instance of a new application up
   # to the +runner+ method defined in Rails::Railtie.
   #
-  # pkg:gem/railties#lib/rails/application.rb:360
+  # pkg:gem/railties#lib/rails/application.rb:367
   def runner(&blk); end
 
-  # pkg:gem/railties#lib/rails/application.rb:99
+  # pkg:gem/railties#lib/rails/application.rb:98
   def sandbox; end
 
-  # pkg:gem/railties#lib/rails/application.rb:99
+  # pkg:gem/railties#lib/rails/application.rb:98
   def sandbox=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application.rb:100
+  # pkg:gem/railties#lib/rails/application.rb:99
   def sandbox?; end
 
   # The secret_key_base is used as the input secret to the application's key generator, which in turn
@@ -509,68 +521,68 @@ class Rails::Application < ::Rails::Engine
   #
   # Dockerfile example: <tt>RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile</tt>.
   #
-  # pkg:gem/railties#lib/rails/application.rb:472
+  # pkg:gem/railties#lib/rails/application.rb:479
   def secret_key_base; end
 
   # Sends any server called in the instance of a new application up
   # to the +server+ method defined in Rails::Railtie.
   #
-  # pkg:gem/railties#lib/rails/application.rb:378
+  # pkg:gem/railties#lib/rails/application.rb:385
   def server(&blk); end
 
-  # pkg:gem/railties#lib/rails/application.rb:518
+  # pkg:gem/railties#lib/rails/application.rb:525
   def to_app; end
 
   # Returns an array of file paths appended with a hash of
   # directories-extensions suitable for ActiveSupport::FileUpdateChecker
   # API.
   #
-  # pkg:gem/railties#lib/rails/application.rb:421
+  # pkg:gem/railties#lib/rails/application.rb:428
   def watchable_args; end
 
   protected
 
-  # pkg:gem/railties#lib/rails/application.rb:621
+  # pkg:gem/railties#lib/rails/application.rb:628
   def default_middleware_stack; end
 
-  # pkg:gem/railties#lib/rails/application.rb:626
+  # pkg:gem/railties#lib/rails/application.rb:633
   def ensure_generator_templates_added; end
 
   # Returns the ordered railties for this application considering railties_order.
   #
-  # pkg:gem/railties#lib/rails/application.rb:587
+  # pkg:gem/railties#lib/rails/application.rb:594
   def ordered_railties; end
 
-  # pkg:gem/railties#lib/rails/application.rb:609
+  # pkg:gem/railties#lib/rails/application.rb:616
   def railties_initializers(current); end
 
-  # pkg:gem/railties#lib/rails/application.rb:576
+  # pkg:gem/railties#lib/rails/application.rb:583
   def run_console_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/application.rb:566
+  # pkg:gem/railties#lib/rails/application.rb:573
   def run_generators_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/application.rb:571
+  # pkg:gem/railties#lib/rails/application.rb:578
   def run_runner_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/application.rb:581
+  # pkg:gem/railties#lib/rails/application.rb:588
   def run_server_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/application.rb:555
+  # pkg:gem/railties#lib/rails/application.rb:562
   def run_tasks_blocks(app); end
 
   private
 
-  # pkg:gem/railties#lib/rails/application.rb:639
+  # pkg:gem/railties#lib/rails/application.rb:646
   def build_middleware; end
 
-  # pkg:gem/railties#lib/rails/application.rb:632
+  # pkg:gem/railties#lib/rails/application.rb:639
   def build_request(env); end
 
-  # pkg:gem/railties#lib/rails/application.rb:643
+  # pkg:gem/railties#lib/rails/application.rb:650
   def coerce_same_site_protection(protection); end
 
-  # pkg:gem/railties#lib/rails/application.rb:647
+  # pkg:gem/railties#lib/rails/application.rb:654
   def filter_parameters; end
 
   class << self
@@ -588,27 +600,27 @@ class Rails::Application < ::Rails::Engine
     # Rails application, you will need to add lib to $LOAD_PATH on your own in case
     # you need to load files in lib/ during the application configuration as well.
     #
-    # pkg:gem/railties#lib/rails/application.rb:402
+    # pkg:gem/railties#lib/rails/application.rb:409
     def add_lib_to_load_path!(root); end
 
-    # pkg:gem/railties#lib/rails/application.rb:83
+    # pkg:gem/railties#lib/rails/application.rb:82
     def create(initial_variable_values = T.unsafe(nil), &block); end
 
-    # pkg:gem/railties#lib/rails/application.rb:87
+    # pkg:gem/railties#lib/rails/application.rb:86
     def find_root(from); end
 
-    # pkg:gem/railties#lib/rails/application.rb:70
+    # pkg:gem/railties#lib/rails/application.rb:69
     def inherited(base); end
 
-    # pkg:gem/railties#lib/rails/application.rb:79
+    # pkg:gem/railties#lib/rails/application.rb:78
     def instance; end
 
-    # pkg:gem/railties#lib/rails/application.rb:96
+    # pkg:gem/railties#lib/rails/application.rb:95
     def new(*_arg0); end
   end
 end
 
-# pkg:gem/railties#lib/rails/application/bootstrap.rb:11
+# pkg:gem/railties#lib/rails/application/bootstrap.rb:10
 module Rails::Application::Bootstrap
   include ::Rails::Initializable
   extend ::Rails::Initializable::ClassMethods
@@ -616,7 +628,7 @@ end
 
 # pkg:gem/railties#lib/rails/application/configuration.rb:13
 class Rails::Application::Configuration < ::Rails::Engine::Configuration
-  # pkg:gem/railties#lib/rails/application/configuration.rb:30
+  # pkg:gem/railties#lib/rails/application/configuration.rb:31
   def initialize(*_arg0); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -631,13 +643,13 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def allow_concurrency=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:560
+  # pkg:gem/railties#lib/rails/application/configuration.rb:582
   def annotations; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:28
+  # pkg:gem/railties#lib/rails/application/configuration.rb:29
   def api_only; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:373
+  # pkg:gem/railties#lib/rails/application/configuration.rb:395
   def api_only=(value); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -658,10 +670,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def autoflush_log=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:468
+  # pkg:gem/railties#lib/rails/application/configuration.rb:490
   def autoload_lib(ignore:); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:480
+  # pkg:gem/railties#lib/rails/application/configuration.rb:502
   def autoload_lib_once(ignore:); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -670,7 +682,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def beginning_of_week=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:385
+  # pkg:gem/railties#lib/rails/application/configuration.rb:407
   def broadcast_log_level; end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -685,10 +697,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def cache_store=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:492
+  # pkg:gem/railties#lib/rails/application/configuration.rb:514
   def colorize_logging; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:496
+  # pkg:gem/railties#lib/rails/application/configuration.rb:518
   def colorize_logging=(val); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -705,8 +717,14 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
 
   # Configures the ActionDispatch::ContentSecurityPolicy.
   #
-  # pkg:gem/railties#lib/rails/application/configuration.rb:565
+  # pkg:gem/railties#lib/rails/application/configuration.rb:587
   def content_security_policy(&block); end
+
+  # pkg:gem/railties#lib/rails/application/configuration.rb:14
+  def content_security_policy_nonce_auto; end
+
+  # pkg:gem/railties#lib/rails/application/configuration.rb:14
+  def content_security_policy_nonce_auto=(_arg0); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def content_security_policy_nonce_directives; end
@@ -735,16 +753,16 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # Loads and returns the entire raw configuration of database from
   # values stored in <tt>config/database.yml</tt>.
   #
-  # pkg:gem/railties#lib/rails/application/configuration.rb:431
+  # pkg:gem/railties#lib/rails/application/configuration.rb:453
   def database_configuration; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:387
+  # pkg:gem/railties#lib/rails/application/configuration.rb:409
   def debug_exception_response_format; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:391
+  # pkg:gem/railties#lib/rails/application/configuration.rb:413
   def debug_exception_response_format=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:582
+  # pkg:gem/railties#lib/rails/application/configuration.rb:604
   def default_log_file; end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -765,16 +783,16 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def eager_load=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:349
+  # pkg:gem/railties#lib/rails/application/configuration.rb:379
   def enable_reloading; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:353
+  # pkg:gem/railties#lib/rails/application/configuration.rb:383
   def enable_reloading=(value); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:28
+  # pkg:gem/railties#lib/rails/application/configuration.rb:29
   def encoding; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:365
+  # pkg:gem/railties#lib/rails/application/configuration.rb:387
   def encoding=(value); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -825,7 +843,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def hosts=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:594
+  # pkg:gem/railties#lib/rails/application/configuration.rb:616
   def inspect; end
 
   # Load the <tt>config/database.yml</tt> to create the Rake tasks for
@@ -834,7 +852,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   #
   # Do not use this method, use #database_configuration instead.
   #
-  # pkg:gem/railties#lib/rails/application/configuration.rb:413
+  # pkg:gem/railties#lib/rails/application/configuration.rb:435
   def load_database_yaml; end
 
   # Loads default configuration values for a target version. This includes
@@ -842,10 +860,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # {configuration guide}[https://guides.rubyonrails.org/configuring.html#versioned-default-values]
   # for the default values associated with a particular version.
   #
-  # pkg:gem/railties#lib/rails/application/configuration.rb:91
+  # pkg:gem/railties#lib/rails/application/configuration.rb:94
   def load_defaults(target_version); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:28
+  # pkg:gem/railties#lib/rails/application/configuration.rb:29
   def loaded_config_version; end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -860,10 +878,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def log_formatter=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:28
+  # pkg:gem/railties#lib/rails/application/configuration.rb:29
   def log_level; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:380
+  # pkg:gem/railties#lib/rails/application/configuration.rb:402
   def log_level=(level); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -878,12 +896,12 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def logger=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:393
+  # pkg:gem/railties#lib/rails/application/configuration.rb:415
   def paths; end
 
   # Configures the ActionDispatch::PermissionsPolicy.
   #
-  # pkg:gem/railties#lib/rails/application/configuration.rb:574
+  # pkg:gem/railties#lib/rails/application/configuration.rb:596
   def permissions_policy(&block); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -910,12 +928,6 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def rake_eager_load=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:357
-  def read_encrypted_secrets; end
-
-  # pkg:gem/railties#lib/rails/application/configuration.rb:361
-  def read_encrypted_secrets=(value); end
-
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def relative_url_root; end
 
@@ -928,7 +940,7 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def reload_classes_only_on_change=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:345
+  # pkg:gem/railties#lib/rails/application/configuration.rb:375
   def reloading_enabled?; end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -943,10 +955,10 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def sandbox_by_default=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:501
+  # pkg:gem/railties#lib/rails/application/configuration.rb:523
   def secret_key_base; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:513
+  # pkg:gem/railties#lib/rails/application/configuration.rb:535
   def secret_key_base=(new_secret_key_base); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
@@ -977,11 +989,17 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
   #   # use ActionDispatch::Session::MyCustomStore as the session store
   #   config.session_store :my_custom_store
   #
-  # pkg:gem/railties#lib/rails/application/configuration.rb:540
+  # pkg:gem/railties#lib/rails/application/configuration.rb:562
   def session_store(new_session_store = T.unsafe(nil), **options); end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:556
+  # pkg:gem/railties#lib/rails/application/configuration.rb:578
   def session_store?; end
+
+  # pkg:gem/railties#lib/rails/application/configuration.rb:14
+  def silence_healthcheck_path; end
+
+  # pkg:gem/railties#lib/rails/application/configuration.rb:14
+  def silence_healthcheck_path=(_arg0); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def ssl_options; end
@@ -1009,24 +1027,24 @@ class Rails::Application::Configuration < ::Rails::Engine::Configuration
 
   private
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:621
+  # pkg:gem/railties#lib/rails/application/configuration.rb:643
   def credentials_defaults; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:631
+  # pkg:gem/railties#lib/rails/application/configuration.rb:653
   def generate_local_secret; end
 end
 
-# pkg:gem/railties#lib/rails/application/configuration.rb:598
+# pkg:gem/railties#lib/rails/application/configuration.rb:620
 class Rails::Application::Configuration::Custom
-  # pkg:gem/railties#lib/rails/application/configuration.rb:599
+  # pkg:gem/railties#lib/rails/application/configuration.rb:621
   def initialize; end
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:603
+  # pkg:gem/railties#lib/rails/application/configuration.rb:625
   def method_missing(method, *args); end
 
   private
 
-  # pkg:gem/railties#lib/rails/application/configuration.rb:615
+  # pkg:gem/railties#lib/rails/application/configuration.rb:637
   def respond_to_missing?(symbol, _); end
 end
 
@@ -1049,153 +1067,184 @@ class Rails::Application::DefaultMiddlewareStack
 
   private
 
-  # pkg:gem/railties#lib/rails/application/default_middleware_stack.rb:109
+  # pkg:gem/railties#lib/rails/application/default_middleware_stack.rb:113
   def load_rack_cache; end
 
-  # pkg:gem/railties#lib/rails/application/default_middleware_stack.rb:131
+  # pkg:gem/railties#lib/rails/application/default_middleware_stack.rb:135
   def show_exceptions_app; end
 end
 
-# pkg:gem/railties#lib/rails/application/finisher.rb:11
+# pkg:gem/railties#lib/rails/application/finisher.rb:10
 module Rails::Application::Finisher
   include ::Rails::Initializable
   extend ::Rails::Initializable::ClassMethods
 end
 
-# pkg:gem/railties#lib/rails/application/finisher.rb:111
+# pkg:gem/railties#lib/rails/application/finisher.rb:110
 module Rails::Application::Finisher::InterlockHook
   class << self
-    # pkg:gem/railties#lib/rails/application/finisher.rb:116
+    # pkg:gem/railties#lib/rails/application/finisher.rb:115
     def complete(_state); end
 
-    # pkg:gem/railties#lib/rails/application/finisher.rb:112
+    # pkg:gem/railties#lib/rails/application/finisher.rb:111
     def run; end
   end
 end
 
-# pkg:gem/railties#lib/rails/application/finisher.rb:97
+# pkg:gem/railties#lib/rails/application/finisher.rb:96
 class Rails::Application::Finisher::MonitorHook
-  # pkg:gem/railties#lib/rails/application/finisher.rb:98
+  # pkg:gem/railties#lib/rails/application/finisher.rb:97
   def initialize(monitor = T.unsafe(nil)); end
 
-  # pkg:gem/railties#lib/rails/application/finisher.rb:106
+  # pkg:gem/railties#lib/rails/application/finisher.rb:105
   def complete(_state); end
 
-  # pkg:gem/railties#lib/rails/application/finisher.rb:102
+  # pkg:gem/railties#lib/rails/application/finisher.rb:101
   def run; end
 end
 
-# pkg:gem/railties#lib/rails/application.rb:105
+# pkg:gem/railties#lib/rails/application.rb:104
 Rails::Application::INITIAL_VARIABLES = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/railties#lib/rails/application/routes_reloader.rb:7
+# pkg:gem/railties#lib/rails/application/routes_reloader.rb:6
 class Rails::Application::RoutesReloader
   include ::ActiveSupport::Callbacks
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:15
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:14
   def initialize; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:8
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:7
   def __callbacks; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:8
-  def __callbacks?; end
-
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:11
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:10
   def eager_load; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:11
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:10
   def eager_load=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:13
-  def execute(*_arg0, **_arg1, &_arg2); end
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:31
+  def execute; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:13
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:12
   def execute_if_updated(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:10
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:36
+  def execute_unless_loaded; end
+
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:9
   def external_routes; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:10
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:9
+  def loaded; end
+
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:11
+  def loaded=(_arg0); end
+
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:9
   def paths; end
 
   # pkg:gem/railties#lib/rails/application/routes_reloader.rb:22
   def reload!; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:10
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:9
   def route_sets; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:12
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:11
   def run_after_load_paths=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:13
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:12
   def updated?(*_arg0, **_arg1, &_arg2); end
 
   private
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:42
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:55
   def clear!; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:58
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:71
   def finalize!; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:49
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:62
   def load_paths; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:62
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:75
   def revert; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:54
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:67
   def run_after_load_paths; end
 
-  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:32
+  # pkg:gem/railties#lib/rails/application/routes_reloader.rb:45
   def updater; end
 
   class << self
-    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:8
+    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:7
     def __callbacks; end
 
-    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:8
+    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:7
     def __callbacks=(value); end
 
-    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:8
-    def __callbacks?; end
+    private
+
+    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:7
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/application/routes_reloader.rb:7
+    def __class_attr___callbacks=(new_value); end
   end
 end
 
-# pkg:gem/railties#lib/rails/application_controller.rb:3
+# pkg:gem/railties#lib/rails/application_controller.rb:5
 class Rails::ApplicationController < ::ActionController::Base
   private
 
-  # pkg:gem/railties#lib/rails/application_controller.rb:3
+  # pkg:gem/railties#lib/rails/application_controller.rb:5
   def _layout(lookup_context, formats, keys); end
 
-  # pkg:gem/railties#lib/rails/application_controller.rb:3
+  # pkg:gem/railties#lib/rails/application_controller.rb:5
   def _layout_from_proc; end
 
-  # pkg:gem/railties#lib/rails/application_controller.rb:25
+  # pkg:gem/railties#lib/rails/application_controller.rb:27
   def disable_content_security_policy_nonce!; end
 
-  # pkg:gem/railties#lib/rails/application_controller.rb:21
+  # pkg:gem/railties#lib/rails/application_controller.rb:23
   def local_request?; end
 
-  # pkg:gem/railties#lib/rails/application_controller.rb:15
+  # pkg:gem/railties#lib/rails/application_controller.rb:17
   def require_local!; end
 
   class << self
+    private
+
+    # pkg:gem/railties#lib/rails/application_controller.rb:9
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/application_controller.rb:9
+    def __class_attr___callbacks=(new_value); end
+
     # pkg:gem/railties#lib/rails/application_controller.rb:7
-    def __callbacks; end
+    def __class_attr__layout; end
+
+    # pkg:gem/railties#lib/rails/application_controller.rb:7
+    def __class_attr__layout=(new_value); end
+
+    # pkg:gem/railties#lib/rails/application_controller.rb:7
+    def __class_attr__layout_conditions; end
+
+    # pkg:gem/railties#lib/rails/application_controller.rb:7
+    def __class_attr__layout_conditions=(new_value); end
 
     # pkg:gem/railties#lib/rails/application_controller.rb:5
-    def _layout; end
+    def __class_attr_config; end
 
     # pkg:gem/railties#lib/rails/application_controller.rb:5
-    def _layout_conditions; end
+    def __class_attr_config=(new_value); end
 
-    # pkg:gem/railties#lib/rails/application_controller.rb:3
-    def middleware_stack; end
+    # pkg:gem/railties#lib/rails/application_controller.rb:5
+    def __class_attr_middleware_stack; end
+
+    # pkg:gem/railties#lib/rails/application_controller.rb:5
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1648,7 +1697,7 @@ end
 #   polymorphic_url(MyEngine::Article.new)
 #   # => "articles_path" # not "my_engine_articles_path"
 #
-#   form_for(MyEngine::Article.new) do
+#   form_with(model: MyEngine::Article.new) do
 #     text_field :title # => <input type="text" name="article[title]" id="article_title" />
 #   end
 #
@@ -1697,7 +1746,7 @@ end
 # All you need to do is pass the helper as the first element in array with
 # attributes for URL:
 #
-#   form_for([my_engine, @user])
+#   form_with(model: [my_engine, @user])
 #
 # This code will use <tt>my_engine.user_path(@user)</tt> to generate the proper route.
 #
@@ -1761,37 +1810,37 @@ class Rails::Engine < ::Rails::Railtie
   # pkg:gem/railties#lib/rails/engine.rb:433
   def __callbacks; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:433
-  def __callbacks?; end
-
   # pkg:gem/railties#lib/rails/engine.rb:434
   def _load_seed_callbacks; end
 
   # pkg:gem/railties#lib/rails/engine.rb:434
-  def _run_load_seed_callbacks(&block); end
+  def _run_load_seed_callbacks; end
+
+  # pkg:gem/railties#lib/rails/engine.rb:434
+  def _run_load_seed_callbacks!(&block); end
 
   # Returns the underlying Rack application for this engine.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:516
+  # pkg:gem/railties#lib/rails/engine.rb:515
   def app; end
 
   # Define the Rack API for this engine.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:533
+  # pkg:gem/railties#lib/rails/engine.rb:532
   def call(env); end
 
   # Define the configuration object for the engine.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:552
+  # pkg:gem/railties#lib/rails/engine.rb:551
   def config; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:490
+  # pkg:gem/railties#lib/rails/engine.rb:489
   def eager_load!; end
 
   # Returns the endpoint for this engine. If none is registered,
   # defaults to an ActionDispatch::Routing::RouteSet.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:528
+  # pkg:gem/railties#lib/rails/engine.rb:527
   def endpoint; end
 
   # pkg:gem/railties#lib/rails/engine.rb:437
@@ -1799,17 +1848,17 @@ class Rails::Engine < ::Rails::Railtie
 
   # Defines additional Rack env configuration that is added on each call.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:539
+  # pkg:gem/railties#lib/rails/engine.rb:538
   def env_config; end
 
   # Returns a module with all the helpers defined for the engine.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:500
+  # pkg:gem/railties#lib/rails/engine.rb:499
   def helpers; end
 
   # Returns all registered helpers paths.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:511
+  # pkg:gem/railties#lib/rails/engine.rb:510
   def helpers_paths; end
 
   # pkg:gem/railties#lib/rails/engine.rb:437
@@ -1824,13 +1873,13 @@ class Rails::Engine < ::Rails::Railtie
   # Load \Rails generators and invoke the registered hooks.
   # Check Rails::Railtie.generators for more info.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:476
+  # pkg:gem/railties#lib/rails/engine.rb:475
   def load_generators(app = T.unsafe(nil)); end
 
   # Load \Rails runner and invoke the registered hooks.
   # Check Rails::Railtie.runner for more info.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:461
+  # pkg:gem/railties#lib/rails/engine.rb:460
   def load_runner(app = T.unsafe(nil)); end
 
   # Load data from db/seeds.rb file. It can be used in to load engines'
@@ -1838,19 +1887,19 @@ class Rails::Engine < ::Rails::Railtie
   #
   # Blog::Engine.load_seed
   #
-  # pkg:gem/railties#lib/rails/engine.rb:560
+  # pkg:gem/railties#lib/rails/engine.rb:559
   def load_seed; end
 
   # Invoke the server registered hooks.
   # Check Rails::Railtie.server for more info.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:485
+  # pkg:gem/railties#lib/rails/engine.rb:484
   def load_server(app = T.unsafe(nil)); end
 
   # Load Rake and railties tasks, and invoke the registered hooks.
   # Check Rails::Railtie.rake_tasks for more info.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:468
+  # pkg:gem/railties#lib/rails/engine.rb:467
   def load_tasks(app = T.unsafe(nil)); end
 
   # pkg:gem/railties#lib/rails/engine.rb:436
@@ -1859,7 +1908,7 @@ class Rails::Engine < ::Rails::Railtie
   # pkg:gem/railties#lib/rails/engine.rb:436
   def paths(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/railties#lib/rails/engine.rb:495
+  # pkg:gem/railties#lib/rails/engine.rb:494
   def railties; end
 
   # pkg:gem/railties#lib/rails/engine.rb:436
@@ -1868,44 +1917,44 @@ class Rails::Engine < ::Rails::Railtie
   # Defines the routes for this engine. If a block is given to
   # routes, it is appended to the engine.
   #
-  # pkg:gem/railties#lib/rails/engine.rb:545
+  # pkg:gem/railties#lib/rails/engine.rb:544
   def routes(&block); end
 
-  # pkg:gem/railties#lib/rails/engine.rb:676
+  # pkg:gem/railties#lib/rails/engine.rb:679
   def routes?; end
 
   protected
 
-  # pkg:gem/railties#lib/rails/engine.rb:681
+  # pkg:gem/railties#lib/rails/engine.rb:684
   def run_tasks_blocks(*_arg0); end
 
   private
 
-  # pkg:gem/railties#lib/rails/engine.rb:713
+  # pkg:gem/railties#lib/rails/engine.rb:716
   def _all_autoload_once_paths; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:717
+  # pkg:gem/railties#lib/rails/engine.rb:720
   def _all_autoload_paths; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:726
+  # pkg:gem/railties#lib/rails/engine.rb:729
   def _all_load_paths(add_autoload_paths_to_load_path); end
 
-  # pkg:gem/railties#lib/rails/engine.rb:751
+  # pkg:gem/railties#lib/rails/engine.rb:754
   def build_middleware; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:743
+  # pkg:gem/railties#lib/rails/engine.rb:746
   def build_request(env); end
 
-  # pkg:gem/railties#lib/rails/engine.rb:709
+  # pkg:gem/railties#lib/rails/engine.rb:712
   def default_middleware_stack; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:737
+  # pkg:gem/railties#lib/rails/engine.rb:740
   def fixtures_in_root_and_not_in_vendor_or_dot_dir?(fixtures); end
 
-  # pkg:gem/railties#lib/rails/engine.rb:693
+  # pkg:gem/railties#lib/rails/engine.rb:696
   def has_migrations?; end
 
-  # pkg:gem/railties#lib/rails/engine.rb:687
+  # pkg:gem/railties#lib/rails/engine.rb:690
   def load_config_initializer(initializer); end
 
   class << self
@@ -1915,28 +1964,25 @@ class Rails::Engine < ::Rails::Railtie
     # pkg:gem/railties#lib/rails/engine.rb:433
     def __callbacks=(value); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:433
-    def __callbacks?; end
-
     # pkg:gem/railties#lib/rails/engine.rb:434
     def _load_seed_callbacks; end
 
     # pkg:gem/railties#lib/rails/engine.rb:434
     def _load_seed_callbacks=(value); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:354
+    # pkg:gem/railties#lib/rails/engine.rb:353
     def called_from; end
 
-    # pkg:gem/railties#lib/rails/engine.rb:354
+    # pkg:gem/railties#lib/rails/engine.rb:353
     def called_from=(_arg0); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:359
+    # pkg:gem/railties#lib/rails/engine.rb:358
     def eager_load!(*_arg0, **_arg1, &_arg2); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:379
+    # pkg:gem/railties#lib/rails/engine.rb:378
     def endpoint(endpoint = T.unsafe(nil)); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:357
+    # pkg:gem/railties#lib/rails/engine.rb:356
     def engine_name(name = T.unsafe(nil)); end
 
     # Finds engine with given path.
@@ -1944,26 +1990,34 @@ class Rails::Engine < ::Rails::Railtie
     # pkg:gem/railties#lib/rails/engine.rb:423
     def find(path); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:375
+    # pkg:gem/railties#lib/rails/engine.rb:374
     def find_root(from); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:697
+    # pkg:gem/railties#lib/rails/engine.rb:700
     def find_root_with_flag(flag, root_path, default = T.unsafe(nil)); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:361
+    # pkg:gem/railties#lib/rails/engine.rb:360
     def inherited(base); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:385
+    # pkg:gem/railties#lib/rails/engine.rb:384
     def isolate_namespace(mod); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:354
+    # pkg:gem/railties#lib/rails/engine.rb:353
     def isolated; end
 
-    # pkg:gem/railties#lib/rails/engine.rb:354
+    # pkg:gem/railties#lib/rails/engine.rb:353
     def isolated=(_arg0); end
 
-    # pkg:gem/railties#lib/rails/engine.rb:356
+    # pkg:gem/railties#lib/rails/engine.rb:355
     def isolated?; end
+
+    private
+
+    # pkg:gem/railties#lib/rails/engine.rb:433
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/engine.rb:433
+    def __class_attr___callbacks=(new_value); end
   end
 end
 
@@ -1975,19 +2029,19 @@ class Rails::Engine::Configuration < ::Rails::Railtie::Configuration
   # Private method that adds custom autoload once paths to the ones defined
   # by +paths+.
   #
-  # pkg:gem/railties#lib/rails/engine/configuration.rb:125
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:127
   def all_autoload_once_paths; end
 
   # Private method that adds custom autoload paths to the ones defined by
   # +paths+.
   #
-  # pkg:gem/railties#lib/rails/engine/configuration.rb:119
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:121
   def all_autoload_paths; end
 
   # Private method that adds custom eager load paths to the ones defined by
   # +paths+.
   #
-  # pkg:gem/railties#lib/rails/engine/configuration.rb:131
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:133
   def all_eager_load_paths; end
 
   # An array of custom autoload once paths. These won't be eager loaded
@@ -2036,6 +2090,12 @@ class Rails::Engine::Configuration < ::Rails::Railtie::Configuration
   # pkg:gem/railties#lib/rails/engine/configuration.rb:10
   def autoload_paths=(_arg0); end
 
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:9
+  def default_scope; end
+
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:9
+  def default_scope=(_arg0); end
+
   # An array of custom eager load paths to be added to the ones defined
   # automatically by Rails. Anything in this collection is considered to be
   # an autoload path regardless of whether it was added to +autoload_paths+.
@@ -2072,7 +2132,7 @@ class Rails::Engine::Configuration < ::Rails::Railtie::Configuration
   #
   #   config.generators.colorize_logging = false
   #
-  # pkg:gem/railties#lib/rails/engine/configuration.rb:65
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:67
   def generators; end
 
   # pkg:gem/railties#lib/rails/engine/configuration.rb:9
@@ -2087,14 +2147,76 @@ class Rails::Engine::Configuration < ::Rails::Railtie::Configuration
   # pkg:gem/railties#lib/rails/engine/configuration.rb:9
   def middleware=(_arg0); end
 
-  # pkg:gem/railties#lib/rails/engine/configuration.rb:71
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:73
   def paths; end
 
   # pkg:gem/railties#lib/rails/engine/configuration.rb:8
   def root; end
 
-  # pkg:gem/railties#lib/rails/engine/configuration.rb:113
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:115
   def root=(value); end
+
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:9
+  def route_set_class; end
+
+  # pkg:gem/railties#lib/rails/engine/configuration.rb:9
+  def route_set_class=(_arg0); end
+end
+
+# pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:11
+class Rails::Engine::LazyRouteSet < ::ActionDispatch::Routing::RouteSet
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:41
+  def initialize(config = T.unsafe(nil)); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:58
+  def call(req); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:68
+  def draw(&block); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:48
+  def generate_extras(options, recall = T.unsafe(nil)); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:54
+  def generate_url_helpers(supports_path); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:63
+  def polymorphic_mappings; end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:73
+  def recognize_path(path, environment = T.unsafe(nil)); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:78
+  def recognize_path_with_request(*_arg0, **_arg1, &_arg2); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:83
+  def routes; end
+
+  private
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:89
+  def method_missing_module; end
+end
+
+# pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:12
+class Rails::Engine::LazyRouteSet::NamedRouteCollection < ::ActionDispatch::Routing::RouteSet::NamedRouteCollection
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:13
+  def route_defined?(name); end
+end
+
+# pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:19
+module Rails::Engine::LazyRouteSet::ProxyUrlHelpers
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:25
+  def full_url_for(options); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:35
+  def optimize_routes_generation?; end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:30
+  def route_for(name, *args); end
+
+  # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:20
+  def url_for(options); end
 end
 
 # pkg:gem/railties#lib/rails/engine/railties.rb:5
@@ -2146,34 +2268,48 @@ end
 # bad. Ideally, you should design your application to handle those outages
 # gracefully.
 #
-# pkg:gem/railties#lib/rails/health_controller.rb:35
+# pkg:gem/railties#lib/rails/health_controller.rb:37
 class Rails::HealthController < ::ActionController::Base
-  # pkg:gem/railties#lib/rails/health_controller.rb:38
+  # pkg:gem/railties#lib/rails/health_controller.rb:40
   def show; end
 
   private
 
-  # pkg:gem/railties#lib/rails/health_controller.rb:35
+  # pkg:gem/railties#lib/rails/health_controller.rb:37
   def _layout(lookup_context, formats, keys); end
 
-  # pkg:gem/railties#lib/rails/health_controller.rb:35
+  # pkg:gem/railties#lib/rails/health_controller.rb:37
   def _layout_from_proc; end
 
-  # pkg:gem/railties#lib/rails/health_controller.rb:51
+  # pkg:gem/railties#lib/rails/health_controller.rb:59
   def html_status(color:); end
 
-  # pkg:gem/railties#lib/rails/health_controller.rb:47
+  # pkg:gem/railties#lib/rails/health_controller.rb:52
   def render_down; end
 
-  # pkg:gem/railties#lib/rails/health_controller.rb:43
+  # pkg:gem/railties#lib/rails/health_controller.rb:45
   def render_up; end
 
   class << self
-    # pkg:gem/railties#lib/rails/health_controller.rb:35
-    def middleware_stack; end
+    private
 
-    # pkg:gem/railties#lib/rails/health_controller.rb:36
-    def rescue_handlers; end
+    # pkg:gem/railties#lib/rails/health_controller.rb:37
+    def __class_attr_config; end
+
+    # pkg:gem/railties#lib/rails/health_controller.rb:37
+    def __class_attr_config=(new_value); end
+
+    # pkg:gem/railties#lib/rails/health_controller.rb:37
+    def __class_attr_middleware_stack; end
+
+    # pkg:gem/railties#lib/rails/health_controller.rb:37
+    def __class_attr_middleware_stack=(new_value); end
+
+    # pkg:gem/railties#lib/rails/health_controller.rb:38
+    def __class_attr_rescue_handlers; end
+
+    # pkg:gem/railties#lib/rails/health_controller.rb:38
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -2212,13 +2348,16 @@ end
 
 # pkg:gem/railties#lib/rails/info_controller.rb:6
 class Rails::InfoController < ::Rails::ApplicationController
-  # pkg:gem/railties#lib/rails/info_controller.rb:14
+  # pkg:gem/railties#lib/rails/info_controller.rb:12
   def index; end
 
-  # pkg:gem/railties#lib/rails/info_controller.rb:18
+  # pkg:gem/railties#lib/rails/info_controller.rb:35
+  def notes; end
+
+  # pkg:gem/railties#lib/rails/info_controller.rb:16
   def properties; end
 
-  # pkg:gem/railties#lib/rails/info_controller.rb:23
+  # pkg:gem/railties#lib/rails/info_controller.rb:21
   def routes; end
 
   private
@@ -2229,35 +2368,52 @@ class Rails::InfoController < ::Rails::ApplicationController
   # pkg:gem/railties#lib/rails/info_controller.rb:8
   def _layout_from_proc; end
 
-  # pkg:gem/railties#lib/rails/info_controller.rb:38
+  # pkg:gem/railties#lib/rails/info_controller.rb:43
   def matching_routes(query:, exact_match:); end
 
   class << self
-    # pkg:gem/railties#lib/rails/info_controller.rb:12
-    def __callbacks; end
+    private
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:10
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:10
+    def __class_attr___callbacks=(new_value); end
 
     # pkg:gem/railties#lib/rails/info_controller.rb:8
-    def _layout; end
+    def __class_attr__layout; end
 
     # pkg:gem/railties#lib/rails/info_controller.rb:8
-    def _layout_conditions; end
+    def __class_attr__layout=(new_value); end
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:8
+    def __class_attr__layout_conditions; end
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:8
+    def __class_attr__layout_conditions=(new_value); end
 
     # pkg:gem/railties#lib/rails/info_controller.rb:6
-    def middleware_stack; end
+    def __class_attr_config; end
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:6
+    def __class_attr_config=(new_value); end
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:6
+    def __class_attr_middleware_stack; end
+
+    # pkg:gem/railties#lib/rails/info_controller.rb:6
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
-
-# pkg:gem/railties#lib/rails/info_controller.rb:10
-Rails::InfoController::RFC2396_PARSER = T.let(T.unsafe(nil), URI::RFC2396_Parser)
 
 # pkg:gem/railties#lib/rails/initializable.rb:6
 module Rails::Initializable
   mixes_in_class_methods ::Rails::Initializable::ClassMethods
 
-  # pkg:gem/railties#lib/rails/initializable.rb:66
+  # pkg:gem/railties#lib/rails/initializable.rb:108
   def initializers; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:58
+  # pkg:gem/railties#lib/rails/initializable.rb:100
   def run_initializers(group = T.unsafe(nil), *args); end
 
   class << self
@@ -2266,69 +2422,119 @@ module Rails::Initializable
   end
 end
 
-# pkg:gem/railties#lib/rails/initializable.rb:70
+# pkg:gem/railties#lib/rails/initializable.rb:112
 module Rails::Initializable::ClassMethods
-  # pkg:gem/railties#lib/rails/initializable.rb:88
+  # pkg:gem/railties#lib/rails/initializable.rb:130
   def initializer(name, opts = T.unsafe(nil), &blk); end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:71
+  # pkg:gem/railties#lib/rails/initializable.rb:113
   def initializers; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:75
+  # pkg:gem/railties#lib/rails/initializable.rb:117
   def initializers_chain; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:84
+  # pkg:gem/railties#lib/rails/initializable.rb:126
   def initializers_for(binding); end
 end
 
-# pkg:gem/railties#lib/rails/initializable.rb:45
-class Rails::Initializable::Collection < ::Array
+# pkg:gem/railties#lib/rails/initializable.rb:37
+class Rails::Initializable::Collection
+  include ::Enumerable
   include ::TSort
 
-  # pkg:gem/railties#lib/rails/initializable.rb:53
+  # pkg:gem/railties#lib/rails/initializable.rb:43
+  def initialize(initializers = T.unsafe(nil)); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:69
   def +(other); end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:49
+  # pkg:gem/railties#lib/rails/initializable.rb:73
+  def <<(initializer); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:86
+  def append(*initializers); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:88
+  def concat(*initializer_collections); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:58
+  def each(&block); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:95
+  def has?(name); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:54
+  def last; end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:41
+  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:81
+  def push(*initializers); end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:50
+  def to_a; end
+
+  # pkg:gem/railties#lib/rails/initializable.rb:63
   def tsort_each_child(initializer, &block); end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:48
-  def tsort_each_node; end
+  # pkg:gem/railties#lib/rails/initializable.rb:62
+  def tsort_each_node(&block); end
+
+  private
+
+  # pkg:gem/railties#lib/rails/initializable.rb:41
+  def respond_to_missing?(name, include_private = T.unsafe(nil)); end
 end
 
 # pkg:gem/railties#lib/rails/initializable.rb:11
 class Rails::Initializable::Initializer
   # pkg:gem/railties#lib/rails/initializable.rb:14
-  def initialize(name, context, options, &block); end
+  def initialize(name, context, before:, after:, group: T.unsafe(nil), &block); end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:23
+  # pkg:gem/railties#lib/rails/initializable.rb:12
   def after; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:19
+  # pkg:gem/railties#lib/rails/initializable.rb:12
   def before; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:27
+  # pkg:gem/railties#lib/rails/initializable.rb:19
   def belongs_to?(group); end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:35
+  # pkg:gem/railties#lib/rails/initializable.rb:27
   def bind(context); end
 
   # pkg:gem/railties#lib/rails/initializable.rb:12
   def block; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:40
+  # pkg:gem/railties#lib/rails/initializable.rb:32
   def context_class; end
 
   # pkg:gem/railties#lib/rails/initializable.rb:12
   def name; end
 
-  # pkg:gem/railties#lib/rails/initializable.rb:31
+  # pkg:gem/railties#lib/rails/initializable.rb:23
   def run(*args); end
 end
 
 # pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:6
 module Rails::LineFiltering
-  # pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:7
+  class << self
+    # pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:7
+    def extended(obj); end
+  end
+end
+
+# pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:18
+module Rails::LineFiltering::MT5
+  # pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:19
   def run(reporter, options = T.unsafe(nil)); end
+end
+
+# pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:26
+module Rails::LineFiltering::MT6
+  # pkg:gem/railties#lib/rails/test_unit/line_filtering.rb:27
+  def run_suite(reporter, options = T.unsafe(nil)); end
 end
 
 # pkg:gem/railties#lib/rails/mailers_controller.rb:6
@@ -2375,14 +2581,31 @@ class Rails::MailersController < ::Rails::ApplicationController
   def show_previews?; end
 
   class << self
+    private
+
     # pkg:gem/railties#lib/rails/mailers_controller.rb:9
-    def __callbacks; end
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/mailers_controller.rb:9
+    def __class_attr___callbacks=(new_value); end
 
     # pkg:gem/railties#lib/rails/mailers_controller.rb:13
-    def _helper_methods; end
+    def __class_attr__helper_methods; end
+
+    # pkg:gem/railties#lib/rails/mailers_controller.rb:13
+    def __class_attr__helper_methods=(new_value); end
 
     # pkg:gem/railties#lib/rails/mailers_controller.rb:6
-    def middleware_stack; end
+    def __class_attr_config; end
+
+    # pkg:gem/railties#lib/rails/mailers_controller.rb:6
+    def __class_attr_config=(new_value); end
+
+    # pkg:gem/railties#lib/rails/mailers_controller.rb:6
+    def __class_attr_middleware_stack; end
+
+    # pkg:gem/railties#lib/rails/mailers_controller.rb:6
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -2630,11 +2853,25 @@ class Rails::PwaController < ::Rails::ApplicationController
   def _layout(lookup_context, formats, keys); end
 
   class << self
+    private
+
     # pkg:gem/railties#lib/rails/pwa_controller.rb:6
-    def __callbacks; end
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/pwa_controller.rb:6
+    def __class_attr___callbacks=(new_value); end
 
     # pkg:gem/railties#lib/rails/pwa_controller.rb:5
-    def middleware_stack; end
+    def __class_attr_config; end
+
+    # pkg:gem/railties#lib/rails/pwa_controller.rb:5
+    def __class_attr_config=(new_value); end
+
+    # pkg:gem/railties#lib/rails/pwa_controller.rb:5
+    def __class_attr_middleware_stack; end
+
+    # pkg:gem/railties#lib/rails/pwa_controller.rb:5
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -2673,6 +2910,29 @@ class Rails::Rack::Logger < ::ActiveSupport::LogSubscriber
   #
   # pkg:gem/railties#lib/rails/rack/logger.rb:56
   def started_request_message(request); end
+end
+
+# Allows you to silence requests made to a specific path.
+# This is useful for preventing recurring requests like health checks from clogging the logging.
+# This middleware is used to do just that against the path /up in production by default.
+#
+# Examples:
+#
+#   config.middleware.insert_before \
+#     Rails::Rack::Logger, Rails::Rack::SilenceRequest, path: "/up"
+#
+#   config.middleware.insert_before \
+#     Rails::Rack::Logger, Rails::Rack::SilenceRequest, path: /test$/
+#
+# This middleware can also be configured using `config.silence_healthcheck_path = "/up"` in Rails.
+#
+# pkg:gem/railties#lib/rails/rack/silence_request.rb:22
+class Rails::Rack::SilenceRequest
+  # pkg:gem/railties#lib/rails/rack/silence_request.rb:23
+  def initialize(app, path:); end
+
+  # pkg:gem/railties#lib/rails/rack/silence_request.rb:27
+  def call(env); end
 end
 
 # +Rails::Railtie+ is the core of the \Rails framework and provides
@@ -2802,144 +3062,144 @@ end
 #
 # Be sure to look at the documentation of those specific classes for more information.
 #
-# pkg:gem/railties#lib/rails/railtie.rb:136
+# pkg:gem/railties#lib/rails/railtie.rb:135
 class Rails::Railtie
   include ::Rails::Initializable
   extend ::ActiveSupport::DescendantsTracker
   extend ::Rails::Initializable::ClassMethods
 
-  # pkg:gem/railties#lib/rails/railtie.rb:245
+  # pkg:gem/railties#lib/rails/railtie.rb:244
   def initialize; end
 
   # This is used to create the <tt>config</tt> object on Railties, an instance of
   # Railtie::Configuration, that is used by Railties and Application to store
   # related configuration.
   #
-  # pkg:gem/railties#lib/rails/railtie.rb:262
+  # pkg:gem/railties#lib/rails/railtie.rb:261
   def config; end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:255
+  # pkg:gem/railties#lib/rails/railtie.rb:254
   def configure(&block); end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:251
+  # pkg:gem/railties#lib/rails/railtie.rb:250
   def inspect; end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:243
+  # pkg:gem/railties#lib/rails/railtie.rb:242
   def railtie_name(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:266
+  # pkg:gem/railties#lib/rails/railtie.rb:265
   def railtie_namespace; end
 
   protected
 
-  # pkg:gem/railties#lib/rails/railtie.rb:271
+  # pkg:gem/railties#lib/rails/railtie.rb:270
   def run_console_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:275
+  # pkg:gem/railties#lib/rails/railtie.rb:274
   def run_generators_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:279
+  # pkg:gem/railties#lib/rails/railtie.rb:278
   def run_runner_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:288
+  # pkg:gem/railties#lib/rails/railtie.rb:287
   def run_server_blocks(app); end
 
-  # pkg:gem/railties#lib/rails/railtie.rb:283
+  # pkg:gem/railties#lib/rails/railtie.rb:282
   def run_tasks_blocks(app); end
 
   private
 
   # run `&block` in every registered block in `#register_block_for`
   #
-  # pkg:gem/railties#lib/rails/railtie.rb:294
+  # pkg:gem/railties#lib/rails/railtie.rb:293
   def each_registered_block(type, &block); end
 
   class << self
-    # pkg:gem/railties#lib/rails/railtie.rb:194
+    # pkg:gem/railties#lib/rails/railtie.rb:193
     def <=>(other); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:172
+    # pkg:gem/railties#lib/rails/railtie.rb:171
     def abstract_railtie?; end
 
     # This is used to create the <tt>config</tt> object on Railties, an instance of
     # Railtie::Configuration, that is used by Railties and Application to store
     # related configuration.
     #
-    # pkg:gem/railties#lib/rails/railtie.rb:146
+    # pkg:gem/railties#lib/rails/railtie.rb:145
     def config(*_arg0, **_arg1, &_arg2); end
 
     # Allows you to configure the railtie. This is the same method seen in
     # Railtie::Configurable, but this module is no longer required for all
     # subclasses of Railtie so we provide the class method here.
     #
-    # pkg:gem/railties#lib/rails/railtie.rb:190
+    # pkg:gem/railties#lib/rails/railtie.rb:189
     def configure(&block); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:156
+    # pkg:gem/railties#lib/rails/railtie.rb:155
     def console(&blk); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:164
+    # pkg:gem/railties#lib/rails/railtie.rb:163
     def generators(&blk); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:198
+    # pkg:gem/railties#lib/rails/railtie.rb:197
     def inherited(subclass); end
 
     # Since Rails::Railtie cannot be instantiated, any methods that call
     # +instance+ are intended to be called only on subclasses of a Railtie.
     #
-    # pkg:gem/railties#lib/rails/railtie.rb:183
+    # pkg:gem/railties#lib/rails/railtie.rb:182
     def instance; end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:176
+    # pkg:gem/railties#lib/rails/railtie.rb:175
     def railtie_name(name = T.unsafe(nil)); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:152
+    # pkg:gem/railties#lib/rails/railtie.rb:151
     def rake_tasks(&blk); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:160
+    # pkg:gem/railties#lib/rails/railtie.rb:159
     def runner(&blk); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:168
+    # pkg:gem/railties#lib/rails/railtie.rb:167
     def server(&blk); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:148
+    # pkg:gem/railties#lib/rails/railtie.rb:147
     def subclasses; end
 
     protected
 
-    # pkg:gem/railties#lib/rails/railtie.rb:206
+    # pkg:gem/railties#lib/rails/railtie.rb:205
     def increment_load_index; end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:204
+    # pkg:gem/railties#lib/rails/railtie.rb:203
     def load_index; end
 
     private
 
-    # pkg:gem/railties#lib/rails/railtie.rb:212
+    # pkg:gem/railties#lib/rails/railtie.rb:211
     def generate_railtie_name(string); end
 
     # If the class method does not have a method, then send the method call
     # to the Railtie instance.
     #
-    # pkg:gem/railties#lib/rails/railtie.rb:224
+    # pkg:gem/railties#lib/rails/railtie.rb:223
     def method_missing(name, *_arg1, **_arg2, &_arg3); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:145
+    # pkg:gem/railties#lib/rails/railtie.rb:144
     def new(*_arg0); end
 
     # receives an instance variable identifier, set the variable value if is
     # blank and append given block to value, which will be used later in
     # `#each_registered_block(type, &block)`
     #
-    # pkg:gem/railties#lib/rails/railtie.rb:235
+    # pkg:gem/railties#lib/rails/railtie.rb:234
     def register_block_for(type, &blk); end
 
-    # pkg:gem/railties#lib/rails/railtie.rb:216
+    # pkg:gem/railties#lib/rails/railtie.rb:215
     def respond_to_missing?(name, _); end
   end
 end
 
-# pkg:gem/railties#lib/rails/railtie.rb:142
+# pkg:gem/railties#lib/rails/railtie.rb:141
 Rails::Railtie::ABSTRACT_RAILTIES = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/railties#lib/rails/railtie/configuration.rb:7
@@ -3047,21 +3307,21 @@ end
 # start with the tag optionally followed by a colon. Everything up to the end
 # of the line (or closing ERB comment tag) is considered to be their text.
 #
-# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:15
+# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:21
 class Rails::SourceAnnotationExtractor
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:137
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:158
   def initialize(tag); end
 
   # Prints the mapping from filenames to annotations in +results+ ordered by filename.
   # The +options+ hash is passed to each annotation's +to_s+.
   #
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:186
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:207
   def display(results, options = T.unsafe(nil)); end
 
   # Returns a hash that maps filenames under +dirs+ (recursively) to arrays
   # with their annotations.
   #
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:143
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:164
   def find(dirs); end
 
   # Returns a hash that maps filenames under +dir+ (recursively) to arrays
@@ -3069,10 +3329,10 @@ class Rails::SourceAnnotationExtractor
   # <tt>Rails::SourceAnnotationExtractor::Annotation.extensions</tt> are
   # taken into account. Only files with annotations are included.
   #
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:151
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:172
   def find_in(dir); end
 
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:135
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:156
   def tag; end
 
   class << self
@@ -3091,12 +3351,12 @@ class Rails::SourceAnnotationExtractor
     #
     # This class method is the single entry point for the <tt>rails notes</tt> command.
     #
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:128
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:149
     def enumerate(tag = T.unsafe(nil), options = T.unsafe(nil)); end
   end
 end
 
-# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:54
+# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:71
 class Rails::SourceAnnotationExtractor::Annotation < ::Struct
   # Returns a representation of the annotation that looks like this:
   #
@@ -3105,35 +3365,35 @@ class Rails::SourceAnnotationExtractor::Annotation < ::Struct
   # If +options+ has a flag <tt>:tag</tt> the tag is shown as in the example above.
   # Otherwise the string contains just line and text.
   #
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:107
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:128
   def to_s(options = T.unsafe(nil)); end
 
   class << self
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:55
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:72
     def directories; end
 
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:75
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:92
     def extensions; end
 
     # Registers additional directories to be included
     #   Rails::SourceAnnotationExtractor::Annotation.register_directories("spec", "another")
     #
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:61
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:78
     def register_directories(*dirs); end
 
     # Registers new Annotations File Extensions
     #   Rails::SourceAnnotationExtractor::Annotation.register_extensions("css", "scss", "sass", "less", "js") { |tag| /\/\/\s*(#{tag}):?\s*(.*)$/ }
     #
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:81
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:98
     def register_extensions(*exts, &block); end
 
     # Registers additional tags
     #   Rails::SourceAnnotationExtractor::Annotation.register_tags("TESTME", "DEPRECATEME")
     #
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:71
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:88
     def register_tags(*additional_tags); end
 
-    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:65
+    # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:82
     def tags; end
   end
 end
@@ -3141,72 +3401,57 @@ end
 # Wraps a regular expression that will be tested against each of the source
 # file's comments.
 #
-# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:18
+# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:24
 class Rails::SourceAnnotationExtractor::ParserExtractor < ::Struct
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:33
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:26
   def annotations(file); end
-end
-
-# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:19
-class Rails::SourceAnnotationExtractor::ParserExtractor::Parser < ::Ripper
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:22
-  def initialize(source, pattern:); end
-
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:20
-  def comments; end
-
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:28
-  def on_comment(value); end
-
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:20
-  def pattern; end
 end
 
 # Wraps a regular expression that will iterate through a file's lines and
 # test each one for the given pattern.
 #
-# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:42
+# pkg:gem/railties#lib/rails/source_annotation_extractor.rb:59
 class Rails::SourceAnnotationExtractor::PatternExtractor < ::Struct
-  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:43
+  # pkg:gem/railties#lib/rails/source_annotation_extractor.rb:60
   def annotations(file); end
 end
 
 # pkg:gem/railties#lib/rails/test_unit/test_parser.rb:12
 module Rails::TestUnit; end
 
-# pkg:gem/railties#lib/rails/test_unit/runner.rb:150
+# pkg:gem/railties#lib/rails/test_unit/runner.rb:154
 class Rails::TestUnit::CompositeFilter
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:153
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:157
   def initialize(runnable, filter, patterns); end
 
   # minitest uses === to find matching filters.
   #
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:160
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:164
   def ===(method); end
 
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:151
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:155
   def named_filter; end
 
   private
 
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:175
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:179
   def derive_line_filters(patterns); end
 
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:165
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:169
   def derive_named_filter(filter); end
 end
 
-# pkg:gem/railties#lib/rails/test_unit/runner.rb:186
+# pkg:gem/railties#lib/rails/test_unit/runner.rb:190
 class Rails::TestUnit::Filter
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:187
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:191
   def initialize(runnable, file, line_or_range); end
 
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:196
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:200
   def ===(method); end
 
   private
 
-  # pkg:gem/railties#lib/rails/test_unit/runner.rb:208
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:212
   def definition_for(method); end
 end
 
@@ -3224,49 +3469,55 @@ class Rails::TestUnit::Runner
   # pkg:gem/railties#lib/rails/test_unit/runner.rb:28
   def filters; end
 
+  # pkg:gem/railties#lib/rails/test_unit/runner.rb:29
+  def load_test_files; end
+
   class << self
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:31
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:32
     def attach_before_load_options(opts); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:82
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:87
     def compose_filter(runnable, filter); end
 
     # pkg:gem/railties#lib/rails/test_unit/runner.rb:28
     def filters; end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:61
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:29
+    def load_test_files; end
+
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:66
     def load_tests(argv); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:36
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:37
     def parse_options(argv); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:55
-    def run(argv = T.unsafe(nil)); end
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:56
+    def run(args = T.unsafe(nil)); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:49
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:50
     def run_from_rake(test_command, argv = T.unsafe(nil)); end
 
     private
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:117
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:120
     def default_test_exclude_glob; end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:113
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:116
     def default_test_glob; end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:93
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:98
     def extract_filters(argv); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:129
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:132
     def list_tests(patterns); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:135
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:139
     def normalize_declarative_test_filter(filter); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:125
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:128
     def path_argument?(arg); end
 
-    # pkg:gem/railties#lib/rails/test_unit/runner.rb:121
+    # pkg:gem/railties#lib/rails/test_unit/runner.rb:124
     def regexp_filter?(arg); end
   end
 end
@@ -3330,16 +3581,36 @@ class Rails::WelcomeController < ::Rails::ApplicationController
   def _layout(lookup_context, formats, keys); end
 
   class << self
+    private
+
     # pkg:gem/railties#lib/rails/welcome_controller.rb:6
-    def __callbacks; end
+    def __class_attr___callbacks; end
+
+    # pkg:gem/railties#lib/rails/welcome_controller.rb:6
+    def __class_attr___callbacks=(new_value); end
 
     # pkg:gem/railties#lib/rails/welcome_controller.rb:7
-    def _layout; end
+    def __class_attr__layout; end
 
     # pkg:gem/railties#lib/rails/welcome_controller.rb:7
-    def _layout_conditions; end
+    def __class_attr__layout=(new_value); end
+
+    # pkg:gem/railties#lib/rails/welcome_controller.rb:7
+    def __class_attr__layout_conditions; end
+
+    # pkg:gem/railties#lib/rails/welcome_controller.rb:7
+    def __class_attr__layout_conditions=(new_value); end
 
     # pkg:gem/railties#lib/rails/welcome_controller.rb:5
-    def middleware_stack; end
+    def __class_attr_config; end
+
+    # pkg:gem/railties#lib/rails/welcome_controller.rb:5
+    def __class_attr_config=(new_value); end
+
+    # pkg:gem/railties#lib/rails/welcome_controller.rb:5
+    def __class_attr_middleware_stack; end
+
+    # pkg:gem/railties#lib/rails/welcome_controller.rb:5
+    def __class_attr_middleware_stack=(new_value); end
   end
 end

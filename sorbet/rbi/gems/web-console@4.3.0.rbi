@@ -281,8 +281,15 @@ class WebConsole::Request::GetSecureIp < ::ActionDispatch::RemoteIp::GetIp
   # pkg:gem/web-console#lib/web_console/request.rb:20
   def initialize(req, proxies); end
 
-  # pkg:gem/web-console#lib/web_console/request.rb:31
+  # Used by rails <= 8.1
+  #
+  # pkg:gem/web-console#lib/web_console/request.rb:32
   def filter_proxies(ips); end
+
+  # Used by rails > 8.1.
+  #
+  # pkg:gem/web-console#lib/web_console/request.rb:39
+  def first_non_proxy(ips); end
 end
 
 # A session lets you persist an +Evaluator+ instance in memory associated
@@ -362,10 +369,10 @@ class WebConsole::SourceLocation
   # pkg:gem/web-console#lib/web_console/source_location.rb:5
   def initialize(binding); end
 
-  # pkg:gem/web-console#lib/web_console/source_location.rb:11
+  # pkg:gem/web-console#lib/web_console/source_location.rb:10
   def lineno; end
 
-  # pkg:gem/web-console#lib/web_console/source_location.rb:10
+  # pkg:gem/web-console#lib/web_console/source_location.rb:9
   def path; end
 end
 
