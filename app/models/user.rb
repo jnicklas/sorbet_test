@@ -12,6 +12,9 @@ class User < ApplicationRecord
   sig { override.returns(String) }
   def label = name
 
+  sig { override.returns(String) }
+  def value = id.to_s
+
   sig { params(term: T.nilable(String)).returns(ActiveRecord::Relation) }
   def self.search(term)
     normalized_term = T.let(term&.strip, T.nilable(String))

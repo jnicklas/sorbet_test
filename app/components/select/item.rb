@@ -22,6 +22,7 @@ module Components
           data: {
             action: "click->select#select",
             select_label_param: @selectable.label,
+            select_value_param: @selectable.value,
           }
         ) { yield }
       end

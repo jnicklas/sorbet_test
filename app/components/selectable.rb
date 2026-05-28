@@ -9,5 +9,8 @@ module Components
 
     sig { abstract.returns(String) }
     def label; end
+
+    sig { abstract.returns(String) }
+    def value; end
   end
 end

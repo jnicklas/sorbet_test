@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["results", "search", "form", "trigger", "panel"]
-  static values = { resultsPath: String }
+  static values = { resultsPath: String, selected: String }
 
   disconnect() {
     if (this.debounceTimer) {
@@ -27,6 +27,7 @@ export default class extends Controller {
   }
 
   select(event) {
+    this.selectedValue = event.params.value
     this.triggerTarget.textContent = event.params.label
     this.panelTarget.hidePopover()
   }
@@ -44,5 +45,12 @@ export default class extends Controller {
     })
 
     this.resultsTarget.innerHTML = await response.text()
+    this.#highlightSelected()
+  }
+
+  #highlightSelected() {
+    for (const item of this.resultsTarget.querySelectorAll("[data-select-value-param]")) {
+      item.classList.toggle("select-picker__item--selected", item.dataset.selectValueParam === this.selectedValue)
+    }
   }
 }

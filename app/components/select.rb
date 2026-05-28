@@ -29,7 +29,7 @@ module Components
     def view_template
       button_label = @selected ? @selected.label : @label
 
-      div(data: { controller: "select", select_results_path_value: @results_path }) do
+      div(data: { controller: "select", select_results_path_value: @results_path, select_selected_value: @selected&.value }) do
         render Dropdown.new(
           label: button_label,
           trigger_data: { select_target: "trigger" },
